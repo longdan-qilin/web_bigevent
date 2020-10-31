@@ -35,15 +35,22 @@ $(function () {
     $('#form-reg').on('submit', function (e) {
         // 阻止表单默认提交行为
         e.preventDefault()
+        // 提取表单数据
+        let data = {
+            username: $('#form-reg [name=username]').val(),
+            password: $('#form-reg [name=password]').val()
+        }
+        // 通过post 提交数据 请求服务器
         $.post('http://ajax.frontend.itheima.net/api/reguser',
-            {
-                username: $('#form-reg [name=username]').val(),
-                password: $('#form-reg [name=password]').val()
-            }, function (res) {
+            data,
+            function (res) {
                 if (res.status !== 0) {
-                    return console.log('注册失败',res.message);
+                    return layer.msg('注册失败！', res.message);
                 }
-                console.log('注册成功！');
+
+                layer.msg('注册成功,请登录！');
+                // 注册触发点击登录事件
+                $('#link_login').click()
             }
         )
     })
