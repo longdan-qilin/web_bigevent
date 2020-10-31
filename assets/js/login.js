@@ -19,6 +19,15 @@ $(function () {
     let form = layui.form
     // 通过form.vairfy()函数 自定义校验规则
     form.verify({
-        pwd: [/[\s]{6,12}$/,'密码必须6到12位，且不能出现空格']
+        // 未加英文 因此添加因为只给你算空格 必须是数字才可以
+        pwd: [/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'],
+        // 通过形参拿到的是确认密码框中的内容
+        // 还需要拿到密码框中的内容
+        // 然后进行一次等于的判断
+        // 如果判断失败，则 return 一个提示消息即可
+        repwd: function (value) { 
+            let pwd = $('.reg-box [name=password]').val()
+            if (pwd !== value) return '两次输入的密码不一致！'
+        }
     })
 }) 
