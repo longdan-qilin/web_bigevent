@@ -21,3 +21,8 @@ iframe {
 .layui-body {
     overflow: hidden;
 }
+
+/* 去掉刷新是左侧文字的动画效果 */
+a {
+    transition: none !important;
+}
