@@ -25,9 +25,26 @@ $(function () {
         // 还需要拿到密码框中的内容
         // 然后进行一次等于的判断
         // 如果判断失败，则 return 一个提示消息即可
-        repwd: function (value) { 
+        repwd: function (value) {
             let pwd = $('.reg-box [name=password]').val()
             if (pwd !== value) return '两次输入的密码不一致！'
         }
+    })
+
+    // 注册功能, 监听注册表单提交事件
+    $('#form-reg').on('submit', function (e) {
+        // 阻止表单默认提交行为
+        e.preventDefault()
+        $.post('http://ajax.frontend.itheima.net/api/reguser',
+            {
+                username: $('#form-reg [name=username]').val(),
+                password: $('#form-reg [name=password]').val()
+            }, function (res) {
+                if (res.status !== 0) {
+                    return console.log('注册失败',res.message);
+                }
+                console.log('注册成功！');
+            }
+        )
     })
 }) 
