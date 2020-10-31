@@ -36,9 +36,10 @@
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-                <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                    <li class="layui-nav-item"><a href=""><span class="iconfont">&#xe6a9;</span>首页</a></li>
-                    <li class="layui-nav-item layui-nav-itemed">
+                <!-- 使用lay-shrink实现左侧菜单互斥效果 -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
+                    <li class="layui-nav-item"><a href="/home/dashboard.html" target="fm"><span class="iconfont">&#xe6a9;</span>首页</a></li>
+                    <li class="layui-nav-item">
                         <a class="" href="javascript:;"><span class="iconfont">&#xe615;</span>文章管理</a>
                         <dl class="layui-nav-child">
                             <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>文章类别</a></dd>
@@ -60,12 +61,12 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px;">内容主体区域</div>
+            <iframe src="" name="fm" frameborder="0"></iframe>
         </div>
 
         <div class="layui-footer">
             <!-- 底部固定区域 -->
-            © layui.com - 底部固定区域
+            © www.itheima.com - 黑马程序员
         </div>
     </div>
     <script src="/assets/lib/layui/layui.all.js"></script>
