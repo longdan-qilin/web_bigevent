@@ -19,8 +19,9 @@
             <!-- 头部区域（可配合layui已有的水平导航） -->
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
-                    <a href="javascript:;">
+                    <a href="javascript:;" class="userinfo">
                         <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        <span class="text-avatar">A</span>
                         个人中心
                     </a>
                     <dl class="layui-nav-child">
@@ -36,9 +37,15 @@
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <div class="userinfo">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    <span class="text-avatar">A</span>
+                    <span id="welcome">欢迎 ***</span>
+                </div>
                 <!-- 使用lay-shrink实现左侧菜单互斥效果 -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
-                    <li class="layui-nav-item layui-this"><a href="/home/dashboard.html" target="fm"><span class="iconfont">&#xe6a9;</span>首页</a></li>
+                    <li class="layui-nav-item layui-this"><a href="/home/dashboard.html" target="fm"><span
+                                class="iconfont">&#xe6a9;</span>首页</a></li>
                     <li class="layui-nav-item">
                         <a class="" href="javascript:;"><span class="iconfont">&#xe615;</span>文章管理</a>
                         <dl class="layui-nav-child">
@@ -61,6 +68,9 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
+            <!-- 没有指定 src，左侧 a 带默认的动画 -->
+            <!-- <iframe src="" name="fm" frameborder="0"></iframe> -->
+            <!-- 指定 src，左侧 a 不带默认的动画了 -->
             <iframe src="/home/dashboard.html" name="fm" frameborder="0"></iframe>
         </div>
 

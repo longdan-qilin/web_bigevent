@@ -26,3 +26,37 @@ iframe {
 a {
     transition: none !important;
 }
+
+.userinfo {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 12px;
+    user-select: none;
+}
+
+.layui-side-scroll .userinfo {
+    border-bottom: 1px solid #282b33;
+}
+
+/* 图片头像样式 */
+.layui-nav-img {
+    width: 40px;
+    height: 40px;
+}
+
+/* 文字头像样式*/
+.text-avatar {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #009688;
+    font-size: 20px;
+    margin-right: 10px;
+}
