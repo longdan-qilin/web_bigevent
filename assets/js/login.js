@@ -13,4 +13,12 @@ $(function () {
         // 注册框隐藏
         $('.reg-box').hide()
     })
+
+    // 自定义校验规则
+    // 通过layui  获取form对象
+    let form = layui.form
+    // 通过form.vairfy()函数 自定义校验规则
+    form.verify({
+        pwd: [/[\s]{6,12}$/,'密码必须6到12位，且不能出现空格']
+    })
 }) 
