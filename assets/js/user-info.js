@@ -24,5 +24,12 @@ $(function () {
             }
         })
     }
+
+    //重置表单数据
+    $('#btnReset').on('click', function () {
+        // 阻止表单默认提交
+        e.preventDefault()
+        initUserInfo()
+    })
 });
 
