@@ -1,9 +1,23 @@
 //入口函数
 $(function () {
+     // 获取用户的的基本信息
+    getuserinfo()
+
     // 退出功能
     let layer = layui.layer 
-        
-    getuserinfo()
+    $('#btnLogout').on('click', function () {
+        layer.confirm('确定退出登录？', {
+            icon: 3,
+            title: '提示'
+        }, function (index) {
+            // 1. 清空本地 token
+            localStorage.removeItem('token');
+            // 2. 跳转到登录页
+            location.href = '/login.html';
+            // 3. 关闭确认框
+            layer.close(index);
+        });
+    }); 
 })
 
 // 获取用户信息 通过ajax
