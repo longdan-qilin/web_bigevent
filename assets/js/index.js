@@ -36,7 +36,9 @@ function getuserinfo() {
             // 获取成功  调用 渲染页面 函数 renderuser（）
             renderuser(res.data)
         },
-        complete: function (res) {
+        
+        
+      /*   complete: function (res) {
             // 成功 or 失败都会执行这里
             if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
                 // 1. 清空 token
@@ -44,7 +46,7 @@ function getuserinfo() {
                 // 2. 强制跳转到登录页
                 location.href = '/login.html';
             }
-        }
+        } */
     })
 }
 
