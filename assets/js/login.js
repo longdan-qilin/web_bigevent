@@ -41,7 +41,7 @@ $(function () {
             password: $('#form-reg [name=password]').val()
         }
         // 通过post 提交数据 请求服务器
-        $.post('http://ajax.frontend.itheima.net/api/reguser',
+        $.post('/api/reguser',
             data,
             function (res) {
                 if (res.status !== 0) {
@@ -63,7 +63,7 @@ $(function () {
         // 通过ajax发送请求
         $.ajax({
             method: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             data: $(this).serialize(),
             success: function (res) {
                 if (res.status !== 0) {
