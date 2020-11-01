@@ -1,5 +1,8 @@
 //入口函数
 $(function () {
+    // 退出功能
+    let layer = layui.layer 
+        
     getuserinfo()
 })
 
