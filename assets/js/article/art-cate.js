@@ -68,6 +68,26 @@ $(function () {
             }
         });
     });
+
+    // 更新文章渲染数据
+    $('body').on('submit', '#form-edit', function (e) {
+        e.preventDefault()
+        $.ajax({
+            method: 'post',
+            url: '/my/article/updatecate',
+            data: $(this).serialize(),
+            success: function (res) {
+                if (res.status !== 0) {
+                    layer.msg('更新文章数据失败！')
+                }
+                layer.msg('更新文章数据成功！')
+                // 重新获取分类数据
+                initArtCateList();
+                // 关闭弹出层
+                layer.close(indexEdit);
+            }
+        })
+    })
 });
 
 
