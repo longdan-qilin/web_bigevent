@@ -48,5 +48,17 @@ $('body').on('submit', '#form-add', function (e) {
     })
 })
 
+// 通过代理的方式，为 btn-edit 按钮绑定点击事件
+var indexEdit = null;
+$('tbody').on('click', '.btn-edit', function (e) {
+    // 编辑弹出层
+     indexEdit = layer.open({
+        type: 1,
+        area: ['500px', '250px'],
+        title: '添加文章分类',
+        content: $('#dialog-edit').html()
+    })
+})
+
 
 
