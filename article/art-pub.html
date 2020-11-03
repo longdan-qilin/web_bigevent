@@ -60,10 +60,19 @@
                             <!-- 预览的区域 -->
                             <div class="img-preview"></div>
                             <!-- 选择封面按钮 -->
-                            <button type="button" class="layui-btn layui-btn-danger">选择封面</button>
+                            <button type="button" class="layui-btn layui-btn-danger" id="btnChooseImage">选择封面</button>
+                            <!-- 隐藏按钮 上传图片 accept 支持的格式  允许用户可以选择什么类型文件-->
+                            <input type="file" id="coverfile" style="display: none;" accept="image/png,image/jpeg,image/gif">
                         </div>
                     </div>
                 </div>
+                <!-- 提交 草稿 按钮 -->
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                      <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+                      <button class="layui-btn layui-btn-primary" lay-submit lay-filter="formDemo" id="btnSave2">存为草稿</button>
+                    </div>
+                  </div>
             </form>
         </div>
     </div>
