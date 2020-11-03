@@ -91,7 +91,7 @@ $(function () {
             limit: q.pagenum,  // 每页显示几条数据
             curr: q.pagesize,//获取起始页
             layout: ['count', 'limit', 'prev', 'page', 'next', 'skip'],
-            limits: [2, 5, 7, 10],
+            limits: [2, 3, 5, 10],
             // 分页发生切换的时候 发生jump回调
             // 触发jump回调的方式有2种
             //1.点击页码的时候 会触发jump回调
@@ -103,7 +103,7 @@ $(function () {
                 // 把最新的页码值 赋值到q这个查询参数对象中
                 q.pagenum = obj.curr
                 // 把最新的条目数 赋值到q这个查询参数对象的 pagesize 属性中
-                q, pagesize = obj.limit
+                q.pagesize = obj.limit
                 // initTable()
                 if (!first) {
                     // 根据最新的q获取对应的数据列表 并渲染表格
@@ -115,6 +115,9 @@ $(function () {
 
     // 删除文章列表 通过事件代理的形式  为删除按钮绑定点击事件
     $('tbody').on('click', '.btn-delete', function () {
+        // 获得当前删除按钮的个数
+        let len = $('.btn-delete').length
+        // console.log(len);
         // 获得对应的id
         let id = $(this).attr('data-id')
         // 确定是否删除 删除的话 请求后台删除数据 且渲染页面
@@ -126,8 +129,17 @@ $(function () {
                     if (res.status !== 0) {
                         return layer.msg('删除文章失败！')
                     }
-                    layer.msg('删除文章成功！')
+                    layer.msg('删除文章成功！');
+
+                    // 当数据删除后需要判断当前页 是否还有剩余的数据
+                    // 如果没有剩余数据了则将页码值-1
+                    // 在调用 initTbale
                     // 渲染页面
+                    if (len === 1) {
+                        // 证明删除完毕后当前页面已经没有数据了
+                        // 页码值最小是 1
+                        q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+                    }
                     initTable()
                     layer.close(index);
                 }
