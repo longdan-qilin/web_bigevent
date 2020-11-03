@@ -26,13 +26,9 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章类别</label>
                     <div class="layui-input-block">
-                        <select name="city" lay-verify="">
-                            <option value="">请选择状态</option>
-                            <option value="0">北京</option>
-                            <option value="1">上海</option>
-                            <option value="2">杭州</option>
-                            <option value="3">广州</option>
-                            <option value="4">深圳</option>
+                        <!-- lay-verify="required"  必填项 验证 -->
+                        <select name="cate_id" lay-verify="required">
+
                         </select>
                     </div>
                 </div>
@@ -40,11 +36,19 @@
         </div>
     </div>
 
+    <!-- 文章类别 模板 -->
+    <script type="text/html" id="tpl-cate">
+        <option value="">请选择文章类别</option>
+        {{each data}}
+        <option value="{{$value.Id}}">{{$value.name}}</option>
+        {{/each}}
+    </script>
 
     <!-- 引入对应的js文件 -->
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/lib/jquery.js"></script>
     <script src="/assets/js/baseAPI.js"></script>
+    <script src="/assets/lib/template-web.js"></script>
     <script src="/assets/js/article/art-pub.js"></script>
 </body>
 
